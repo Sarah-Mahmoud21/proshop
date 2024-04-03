@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.header .menu {
+  color: #FCDD06;
+  position: absolute;
+  left: 0px;
+}
+.header h1 {
+  color: white;
+  position: relative;
+  margin: auto;
+  font-family: normal 900 40px/15px Muli;
+}
+.header h1 span {
+  color: #FCDD06;
+}
+.header .search-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+  height: 50px;
+}
+.header .search-div .MuiInputBase-input {
+  background-color: white;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 10px;
+  width: 600px;
+  height: 25px;
+}
+.header .search-div .MuiInputLabel-root {
+  color: black;
+  font-size: 10px;
+}
+.header .search-div .MuiButton-root {
+  background-color: #FCDD06;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 40px;
+  padding: 8px 16px;
+}
+.header .icons {
+  display: none;
+}
+.header .icons ul {
+  list-style-type: none;
+  display: flex;
+}
+.header .icons ul li .MuiButton-root {
+  justify-content: flex-end;
+  color: white;
+}
+
+@media only screen and (min-width: 1023px) {
+  .header h1 {
+    margin: 10px;
+  }
+  .header .menu {
+    display: none;
+  }
+  .header .search-div {
+    display: flex;
+  }
+  .header .icons {
+    display: flex;
+  }
+}/*# sourceMappingURL=Header.css.map */
