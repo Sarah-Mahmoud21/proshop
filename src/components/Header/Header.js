@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TextField, Button, Drawer } from "@mui/material";
+import { Link } from "react-router-dom";
 import "../Header/Header.css"; 
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import PersonIcon from "@mui/icons-material/Person";
@@ -29,9 +30,9 @@ function Header() {
       </div>
       <div className="icons">
         <ul>
-          <li><Button><PersonIcon /></Button></li>
-          <li><Button><BookmarkIcon /></Button></li>
-          <li><Button><ShoppingCartIcon /></Button></li>
+          <li><Link to="/login" ><PersonIcon /></Link></li>
+          <li><Link ><BookmarkIcon /></Link></li>
+          <li><Link><ShoppingCartIcon /></Link></li>
         </ul>          
       </div>
       <Drawer 
@@ -51,9 +52,9 @@ function Header() {
         <Button  style={{color:'#FCDD06',border:'none' ,background:'none',boxShadow:'none'}} variant="contained"><SearchIcon/></Button>
         </div>
             </li>
-            <li><Button style={{color:'#FCDD06'}}><PersonIcon /></Button></li>
-            <li><Button style={{color:'#FCDD06'}}><BookmarkIcon /></Button></li>
-            <li><Button style={{color:'#FCDD06'}}><ShoppingCartIcon /></Button></li>
+            <li><Link  to="/login"style={{color:'#FCDD06'}}><PersonIcon /></Link></li>
+            <li><Link style={{color:'#FCDD06'}}><BookmarkIcon /></Link></li>
+            <li><Link style={{color:'#FCDD06'}}><ShoppingCartIcon /></Link></li>
           </ul>
         </div>
       </Drawer>

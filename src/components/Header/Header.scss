@@ -67,11 +67,12 @@ body {
     display: none;
     ul {
       list-style-type: none;
-      display: flex;
+      display: flex; 
       li {
-        .MuiButton-root {
+        a{
           justify-content: flex-end;
           color: white;
+          margin-left:10px;
         }
       }
     }

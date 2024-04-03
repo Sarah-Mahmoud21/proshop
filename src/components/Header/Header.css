@@ -59,9 +59,10 @@ body {
   list-style-type: none;
   display: flex;
 }
-.header .icons ul li .MuiButton-root {
+.header .icons ul li a {
   justify-content: flex-end;
   color: white;
+  margin-left: 10px;
 }
 
 @media only screen and (min-width: 1023px) {
