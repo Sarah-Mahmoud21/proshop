@@ -36,11 +36,12 @@
         border-radius: 10px;
         width: 220px;
       }
+      
     }
   }
 
   .login-image {
-    max-width: 100%;
+    max-width: 90%;
   }
 }
 @include breakpoint(medium) {

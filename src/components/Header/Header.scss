@@ -47,6 +47,7 @@ body {
       border-radius: 10px;
       width: 600px;
       height: 25px;
+      z-index:1;
     }
 
     .MuiInputLabel-root {
@@ -56,10 +57,16 @@ body {
 
     .MuiButton-root {
       background-color: $color;
+      color:black;
+      width:150px;
       border-radius: 10px;
       font-size: 16px;
-      height: 40px;
-      padding: 8px 16px; // Add padding for better button appearance
+      height: 41px;
+      padding: 8px 16px; 
+      z-index: 2;
+      position: relative;
+      right:10%;
+      
     }
   }
 
@@ -69,10 +76,22 @@ body {
       list-style-type: none;
       display: flex; 
       li {
+        color:white;
+        font-size: 10px;
+        margin-right:10px;
+        margin-left: 10px;
+        text-align: center;
         a{
-          justify-content: flex-end;
+          text-align: center;
           color: white;
-          margin-left:10px;
+          .custom-badge {
+            background-color: $color !important;
+            color: black !important; /* Change the text color if needed */
+          }
+        
+          
+          
+
         }
       }
     }
@@ -107,7 +126,8 @@ body {
     }
 
     .search-div {
-      display: flex;
+      display:flex;
+      align-content: normal;
     }
 
     .icons {
