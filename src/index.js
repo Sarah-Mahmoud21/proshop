@@ -4,6 +4,12 @@ import{createBrowserRouter,RouterProvider} from "react-router-dom";
 import Header from './components/Header/Header'
 import LoginForm from './components/Login/LoginForm';
 import SignUp from './components/SignUp/SignUp';
+import 'crypto-browserify';
+import 'buffer';
+import 'stream';
+import 'util';
+
+
 
 
 const router = createBrowserRouter([
