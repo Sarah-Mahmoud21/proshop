@@ -1,0 +1,78 @@
+@import "../helper/variables";
+@import "../helper/breakpoints";
+
+.profile-page {
+  position: relative;
+  display: flex;
+  padding: 10%;
+  overflow-x: hidden;
+}
+
+.profile-links {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-right: 10%;
+  border-radius: 20px;
+  a {
+    text-decoration: none;
+    display: block;
+    color: black;
+  }
+  button {
+    border: none;
+    background: none;
+    color: $gray;
+  }
+  .pic {
+    display: flex;
+    margin-bottom: 15px;
+    img {
+      width: 30%;
+      border-radius: 50%;
+      margin-right: 20px;
+      object-fit: cover;
+    }
+  }
+}
+
+.profile-info {
+  border-radius: 20px;
+  display: flex;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 2000px;
+  .info {
+    padding-left: 15px;
+    display: block;
+    width: 500px;
+    .MuiButton-root {
+      background-color: $color;
+      color: black;
+      font-size: 10px;
+      margin-top: 30px;
+    }
+    p {
+      font-family: normal normal normal 24px/15px Muli;
+      label {
+        color: $gray;
+        font-family: normal normal normal 24px/15px Muli;
+        width: 50px;
+        margin-right: 20px;
+      }
+    }
+  }
+  .pic {
+    position: relative;
+    left: 35%;
+    img {
+      border-radius: 50%;
+      width: 35%;
+    }
+    .MuiButton-root {
+      background-color: $color;
+      color: black;
+      margin: 20px;
+      font-size: 10px;
+    }
+  }
+}

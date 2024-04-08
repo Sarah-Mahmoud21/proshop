@@ -1,0 +1,76 @@
+.profile-page {
+  position: relative;
+  display: flex;
+  padding: 10%;
+  overflow-x: hidden;
+}
+
+.profile-links {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-right: 10%;
+  border-radius: 20px;
+}
+.profile-links a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+.profile-links button {
+  border: none;
+  background: none;
+  color: #707070;
+}
+.profile-links .pic {
+  display: flex;
+  margin-bottom: 15px;
+}
+.profile-links .pic img {
+  width: 30%;
+  border-radius: 50%;
+  margin-right: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-info {
+  border-radius: 20px;
+  display: flex;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 2000px;
+}
+.profile-info .info {
+  padding-left: 15px;
+  display: block;
+  width: 500px;
+}
+.profile-info .info .MuiButton-root {
+  background-color: #FCDD06;
+  color: black;
+  font-size: 10px;
+  margin-top: 30px;
+}
+.profile-info .info p {
+  font-family: normal normal normal 24px/15px Muli;
+}
+.profile-info .info p label {
+  color: #707070;
+  font-family: normal normal normal 24px/15px Muli;
+  width: 50px;
+  margin-right: 20px;
+}
+.profile-info .pic {
+  position: relative;
+  left: 35%;
+}
+.profile-info .pic img {
+  border-radius: 50%;
+  width: 35%;
+}
+.profile-info .pic .MuiButton-root {
+  background-color: #FCDD06;
+  color: black;
+  margin: 20px;
+  font-size: 10px;
+}/*# sourceMappingURL=ProfilePage.css.map */

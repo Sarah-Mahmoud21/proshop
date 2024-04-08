@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
   TextField,
   Button,
@@ -7,51 +8,61 @@ import {
 } from "@mui/material";
 import "../Login/LoginForm.css"; // Import your SCSS file
 import Header from "../Header/Header";
-import jwt from "jsonwebtoken";
-import 'crypto-browserify';
+import axios from "axios"; // Import Axios for making HTTP requests
 
 function LoginForm() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const handleLogin = async () => {
+    // Reset errors
+    setEmailError("");
+    setPasswordError("");
+    setError("");
 
-
-  const handleLogin = () => {
     // Validate email format
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address.");
       return;
-    } else {
-      setEmailError("");
     }
 
     // Validate password strength
     if (!validatePassword(password)) {
       setPasswordError("Password must have at least 8 characters, including uppercase, lowercase, numbers, and special characters.");
       return;
-    } else {
-      setPasswordError("");
     }
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Remember Me:", rememberMe);
-    const secretKey = 'your_secret_key_here';
+    // Set loading state
+    setLoading(true);
 
-// Data to be encoded in the token
-const data = {
-  email: 'example@example.com',
-  password: 'sara1234S@', 
-};
+    try {
+      const response = await axios.post("http://localhost:3001/login", { email, password });
+      const token = response.data.token;
+      // Store the token in local storage or session storage
+      localStorage.setItem("token", token);
+      console.log("Login successful!");
+      
+      navigate('/profile');
 
-// Generate the token
-const token = jwt.sign(data, secretKey);
-console.log('Generated Token:', token);
-};
-
+      
+      // Redirect to dashboard or any other authenticated route
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("An unexpected error occurred. Please try again later.");
+      }
+    } finally {
+      // Reset loading state
+      setLoading(false);
+    }
+  };
 
   const validateEmail = (email) => {
     // Regular expression for email validation
@@ -65,7 +76,6 @@ console.log('Generated Token:', token);
     return passwordPattern.test(password);
   };
 
-  
   return (
     <>
       <Header />
@@ -73,6 +83,7 @@ console.log('Generated Token:', token);
         <div className="login-form">
           <h1>Login</h1>
           <h3>Login with your data that you entered during registration</h3>
+          {error && <div className="error-message">{error}</div>}
           <form>
             <TextField
               label="Enter your email"
@@ -103,8 +114,9 @@ console.log('Generated Token:', token);
                 variant="contained"
                 color="primary"
                 onClick={handleLogin}
+                disabled={loading} // Disable button while loading
               >
-                Login
+                {loading ? "Logging in..." : "Login"}
               </Button>{" "}
               <br />
               <Checkbox

@@ -9,7 +9,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
 
+
 function Header() {
+  const token = localStorage.getItem('token');
+  const isLoggedIn = !!token; 
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -30,11 +33,25 @@ function Header() {
       <div className="icons">
         <ul>
           <li>
+          {isLoggedIn ? (
+                <>
+                <Link to="/profile" >
+                  <PersonIcon />
+                  </Link>
+                <br/>
+               { /*username*/}
+               
+                </>
+                  ):(
+                    <>
             <Link to="/login">
               <PersonIcon />
             </Link> <br/>
             Login/Sign up
+            </>
+                  )}     
           </li>
+
           <li>
             <Link>
             <Badge classes={{ badge: 'custom-badge' }} badgeContent={0} showZero>
