@@ -1,0 +1,50 @@
+@import '~typeface-muli/index.css';
+.photo-slider {
+  background-color: #F2F2F2;
+}
+.photo-slider .sub-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10%;
+  padding-bottom: 0%;
+}
+.photo-slider .sub-slider .info p {
+  font-family: "Muli";
+  font-size: 20px;
+}
+.photo-slider .sub-slider .info h1 {
+  font-family: "Muli";
+}
+.photo-slider .sub-slider .info .MuiButton-root {
+  color: black;
+  background-color: #FCDD06;
+  border-radius: 20px;
+  width: 200px;
+}
+.photo-slider img {
+  width: 30%;
+  transform: rotate(20deg);
+}
+.photo-slider .slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+.photo-slider .slider button {
+  background: none;
+  border: none;
+  font-size: 30px;
+}
+.photo-slider .slider .circle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+}
+.photo-slider .slider .circle.active {
+  background-color: #FCDD06;
+}/*# sourceMappingURL=PhotoSlider.css.map */

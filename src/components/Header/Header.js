@@ -7,13 +7,17 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-
+import {useUser} from '../userContext';
 
 
 function Header() {
   const token = localStorage.getItem('token');
   const isLoggedIn = !!token; 
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const { user } = useUser(); // Access user data from context
+  console.log(user);
+  
+
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -33,17 +37,19 @@ function Header() {
       <div className="icons">
         <ul>
           <li>
-          {isLoggedIn ? (
-                <>
-                <Link to="/profile" >
+          {isLoggedIn && user ? (
+              <>
+                <Link to="/profile">
                   <PersonIcon />
-                  </Link>
-                <br/>
-               { /*username*/}
-               
-                </>
-                  ):(
-                    <>
+                </Link>
+                <br />
+                {user.firstName} {user.lastName}
+                
+              
+              </>
+            ) : (
+              // Render login/signup link if user is not logged in
+              <>
             <Link to="/login">
               <PersonIcon />
             </Link> <br/>

@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import {
   TextField,
   Button,
-  Link,
   Checkbox,
 } from "@mui/material";
 import "../Login/LoginForm.css"; // Import your SCSS file
 import Header from "../Header/Header";
 import axios from "axios"; // Import Axios for making HTTP requests
+import { useUser } from "../userContext";
+import { Link } from "react-router-dom";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ function LoginForm() {
   const [passwordError, setPasswordError] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { updateUser } = useUser();
+
 
   const handleLogin = async () => {
     // Reset errors
@@ -44,10 +47,19 @@ function LoginForm() {
     try {
       const response = await axios.post("http://localhost:3001/login", { email, password });
       const token = response.data.token;
-      // Store the token in local storage or session storage
       localStorage.setItem("token", token);
-      console.log("Login successful!");
+    
+      // Fetch user profile using the token
+      const profileResponse = await axios.get("http://localhost:3001/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       
+      const userData = profileResponse.data.user;
+      updateUser(userData); // Update user context with received user data
+    
+      console.log("Login successful!");
       navigate('/profile');
 
       
@@ -136,7 +148,7 @@ function LoginForm() {
               <Button>
                 <Link
                   className="signup"
-                  href="/signup"
+                  to="/signup"
                   style={{ marginLeft: "10px" }}
                 >
                   Sign Up Now

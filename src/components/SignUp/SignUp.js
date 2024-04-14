@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { TextField, Button, Link } from "@mui/material";
+import { TextField, Button} from "@mui/material";
 import Header from "../Header/Header";
 import "../Login/LoginForm.css";
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 function Signup() {
@@ -12,6 +14,7 @@ function Signup() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [matchPasswordError, setMatchPasswordError] = useState("");
+  const navigate= useNavigate();
 
   const handleSignup = () => {
     // Validate email format
@@ -43,7 +46,7 @@ function Signup() {
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Password:", password);
-    //nav to profile
+    navigate('/login');
   };
 
   const validateEmail = (email) => {
@@ -122,7 +125,7 @@ function Signup() {
               <span style={{ color: "#707070" }}>Have an account?</span>
               <Link
                 className="login-from-sign"
-                href="/login"
+                to="/login"
                 style={{ marginLeft: "10px" }}
               >
                 login
