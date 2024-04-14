@@ -1,5 +1,5 @@
-// UserContext.js
-import React, { createContext, useState, useContext } from 'react';
+// UserContext.tsx
+import React, { createContext, useContext, useState } from 'react';
 
 const UserContext = createContext();
 

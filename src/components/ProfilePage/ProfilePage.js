@@ -2,16 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../Header/Header';
 import {
-  TextField,
   Button,
   Link,
-  Checkbox,
 } from "@mui/material";
 import '../ProfilePage/ProfilePage.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function ProfilePage() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  function handleLogout(){
+    localStorage.removeItem('token');
+    navigate('/');
+  
+  }
+  
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -33,6 +40,7 @@ function ProfilePage() {
         console.error('Error fetching user profile:', error);
         setError(error.response ? error.response.data.message : 'Server error');
       }
+     
     };
 
     fetchUserProfile();
@@ -55,7 +63,7 @@ function ProfilePage() {
               <Link>Notifications</Link><br/>
               <Link>Settings</Link><br/>
               <hr/><br/>
-              <button>Logout</button>       
+              <button onClick={handleLogout}>Logout</button>       
           </div>
           <div className='profile-info'>
           <div className='info'>
