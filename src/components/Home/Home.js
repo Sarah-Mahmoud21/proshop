@@ -1,16 +1,20 @@
 import * as React from "react";
 import Header from "../Header/Header";
 import PhotoSlider from "../helper/PhotoSlider/PhotoSlider";
+import FeaturedCategories from "../helper/FeaturedCategories/FeaturedCategories";
+import FeaturedProducts from "../helper/FeaturedProducts/FeaturedProducts";
+import TopRate from "../helper/TopRate/TopRate";
+
 
 function Home() {
     const images = [
         {
-          url: 'https://cdn.salla.sa/GWeSNB7VgO47hdgKvuvhqNbUSG1yoa7UCH0KuaC9.jpg',
+          url: 'https://www.pngall.com/wp-content/uploads/14/Airpod-Transparent.png',
           title: 'iPhone AirPods',
           description: 'Experience the magic of AirPods.'
         },
         {
-          url: 'https://www.powerbuy.co.th/_next/image?url=https%3A%2F%2Fpim.powerbuy.co.th%2FPWBPIM%2Fweb%2FThumbnail%2FImage%2F1101%2F286595.jpg&w=640&q=75',
+          url: 'https://www.g-h.store/wp-content/uploads/2023/03/playstation-5-digital-edition-with-dualsense-front-product-shot-01-ps5-en-30jul20.png.webp',
           title: 'Playstation 5',
           description: 'Enhance your gaming experience with our latest gaming mouse.'
         },
@@ -24,10 +28,10 @@ function Home() {
     return (
         <>
         <Header/> 
-
         <PhotoSlider images={images} />
-        
-        
+        <FeaturedCategories/>
+        <FeaturedProducts/>
+        <TopRate/>
         
         </>
       );

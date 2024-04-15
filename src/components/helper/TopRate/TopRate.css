@@ -1,0 +1,72 @@
+.top {
+  padding-top: 5px;
+}
+.top h1 {
+  font-family: "Muli";
+  padding-left: 5%;
+}
+.top .phr {
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 1px solid #707070;
+}
+.top .phr .panimate-hr {
+  width: 25%;
+  height: 10px;
+  background-color: #FCDD06;
+  position: relative;
+  transition: width 0.6s ease-in-out; /* Add transition for smooth animation */
+}
+.top .visible-products {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  margin: 5%;
+  border: 1px solid #FCDD06;
+  border-radius: 15px;
+}
+.top .visible-products .category {
+  margin-right: 10px;
+  background-color: white;
+  padding: 5%;
+  text-align: center;
+  border-left: 3px solid #F7F8FC;
+}
+.top .visible-products .category img {
+  margin: auto;
+  width: 50%;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.top .visible-products .category p {
+  font-family: "Muli";
+  font-size: 15px;
+}
+.top .visible-products .category .add-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top .visible-products .category .add-cart button {
+  margin: 10px;
+  height: 30px;
+  font-size: 15px;
+  font-family: "Muli";
+}
+.top .visible-products .category .add-cart .add {
+  width: 150px;
+}
+.top .pcircle-buttons {
+  text-align: center;
+}
+.top .pcircle-buttons .circle {
+  border: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+}
+.top .pcircle-buttons .circle.active {
+  background-color: #FCDD06;
+}/*# sourceMappingURL=TopRate.css.map */

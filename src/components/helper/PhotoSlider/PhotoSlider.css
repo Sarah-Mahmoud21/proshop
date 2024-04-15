@@ -23,7 +23,10 @@
   width: 200px;
 }
 .photo-slider img {
-  width: 30%;
+  width: 28%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 1/1;
   transform: rotate(20deg);
 }
 .photo-slider .slider {

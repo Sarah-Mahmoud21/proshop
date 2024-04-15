@@ -28,7 +28,9 @@
     }
     }
     img { 
-        width:30%;
+        width:28%;
+        object-fit: contain;
+        aspect-ratio: 1/1;
         transform: rotate(20deg);
     }
     .slider{
