@@ -17,13 +17,17 @@ body {
   position: absolute;
   left: 0px;
 }
-.header h1 {
+.header a {
+  text-decoration: none;
+  margin: auto;
+}
+.header a h1 {
   color: white;
   position: relative;
-  margin: auto;
+  margin: 0%;
   font-family: normal 900 40px/15px Muli;
 }
-.header h1 span {
+.header a h1 span {
   color: #FCDD06;
 }
 .header .search-div {
@@ -82,7 +86,7 @@ body {
 }
 
 @media only screen and (min-width: 1023px) {
-  .header h1 {
+  .header a {
     margin: 10px;
   }
   .header .menu {

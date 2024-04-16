@@ -25,16 +25,20 @@ body {
     left: 0px;
   }
 
+a{
+  text-decoration: none;
+  margin: auto;
   h1 {
     color: white;
     position: relative;
-    margin: auto;
+    margin: 0%;
+   
     font-family: normal 900 40px/15px Muli;
     span {
       color: $color;
     }
   }
-
+}
   .search-div {
     @include justify;
     display: none;
@@ -117,9 +121,12 @@ body {
 
 @include breakpoint(large) {
   .header {
-    h1 {
+    a{
       margin: 10px;
+    h1 {
+     
     }
+  }
     .menu {
       display: none;
     }

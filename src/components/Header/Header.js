@@ -27,7 +27,7 @@ function Header() {
       <Button className="menu" onClick={toggleDrawer}>
         <MenuIcon />
       </Button>
-      <Link to = "/" style={{textDecoration:'none'}}>
+      <Link to = "/" >
       <h1>
         <span>Pro</span>Shop
       </h1>
