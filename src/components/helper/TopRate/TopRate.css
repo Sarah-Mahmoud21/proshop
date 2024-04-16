@@ -29,7 +29,7 @@
   background-color: white;
   padding: 5%;
   text-align: center;
-  border-left: 1px solid #F7F8FC;
+  border-left: 1px solid #f7f8fc;
 }
 .top .visible-products .category .original-price {
   display: inline;
@@ -37,12 +37,12 @@
   margin-right: 10px;
 }
 .top .visible-products .category .new-price {
-  color: #FC4059;
+  color: #fc4059;
   display: inline;
 }
 .top .visible-products .category .percentage {
   border-radius: 50%;
-  background-color: #FC4059;
+  background-color: #fc4059;
   color: white;
   width: 70px;
   height: 70px;

@@ -7,6 +7,7 @@ import SignUp from './components/SignUp/SignUp';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import Home from './components/Home/Home';
 import { UserProvider } from './components/userContext'; // Make sure to import correct file name and casing
+import ProductPage from './components/ProductPage/ProductPage';
 
 // Create BrowserRouter instance
 const router = createBrowserRouter([
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: <ProfilePage />
-  }
+  },
+  {
+    path: "/Home/:id",
+    element: <ProductPage/>
+  },
 ]);
 
 // Render your application with both RouterProvider and UserProvider

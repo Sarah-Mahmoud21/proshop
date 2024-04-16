@@ -3,6 +3,8 @@ import "../FeaturedProducts/FeaturedProducts.css";
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'; 
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import { Link } from "react-router-dom";
+
 
 
 function FeaturedProducts() {
@@ -71,7 +73,9 @@ function FeaturedProducts() {
             .slice(currentSlide * productsPerPage, (currentSlide + 1) * productsPerPage)
             .map((product, index) => (
               <div key={index} className="category">
+                <Link key={product.id} to={`/Home/${product.id}`}>
                 <img src={product.thumbnail} alt={`Slide ${index + 1}`} />
+                </Link>
                 <p>{product.title}</p>
                 <span>{discountPercentage(product.price ,product.discountPercentage)}</span>
                 <div className="rating">
