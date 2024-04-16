@@ -42,6 +42,7 @@ function FeaturedProducts() {
     let percentage=0;
     if(discountRate!=0){
      newPrice = originalPrice - (originalPrice * discountRate / 100).toFixed(2); 
+     parseFloat(newPrice.toFixed(2));
      percentage = discountRate;
      return(
      <>
@@ -66,7 +67,7 @@ function FeaturedProducts() {
           <div className="panimate-hr"></div>
         </div>
         <div className="visible-products">
-          {products
+          {products.slice(0,9)
             .slice(currentSlide * productsPerPage, (currentSlide + 1) * productsPerPage)
             .map((product, index) => (
               <div key={index} className="category">
@@ -85,7 +86,7 @@ function FeaturedProducts() {
         </div>
 
         <div className="pcircle-buttons">
-          {[...Array(Math.ceil(products.length / productsPerPage))].map((_, index) => (
+          {[...Array(Math.ceil(9 / productsPerPage))].map((_, index) => (
             <button
               key={index}
               onClick={() => handleClick(index)}

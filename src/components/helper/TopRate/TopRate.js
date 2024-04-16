@@ -36,7 +36,8 @@ function TopRate() {
     let newPrice=0;
     let percentage=0;
     if(discountRate!=0){
-     newPrice = originalPrice - (originalPrice * discountRate / 100).toFixed(2); 
+     newPrice = originalPrice - (originalPrice * discountRate / 100); 
+     parseFloat(newPrice.toFixed(2));
      percentage = discountRate;
      return(
      <>
