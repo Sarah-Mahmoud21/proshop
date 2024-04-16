@@ -40,11 +40,11 @@ function FeaturedCategories() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const handleClick = (index) => {
-    setCurrentSlide(index);
-    const animateHr = document.querySelector('.animate-hr');
-    animateHr.style.left = `${index * 25}%`; // Move animate-hr left based on clicked index
-  };
+  // const handleClick = (index) => {
+  //   setCurrentSlide(index);
+  //   const animateHr = document.querySelector('.animate-hr');
+  //   animateHr.style.left = `${index * 25}%`; // Move animate-hr left based on clicked index
+  // };
 
   return (
     <>
@@ -54,7 +54,7 @@ function FeaturedCategories() {
           {[...Array(Math.ceil(images.length / 4))].map((_, index) => (
             <button
               key={index}
-              onClick={() => handleClick(index)}
+              onClick={() => setCurrentSlide(index)}
               className={`circle ${
                 currentSlide === index ? "active" : ""
               }`}></button>

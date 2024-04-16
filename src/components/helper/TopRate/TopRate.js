@@ -1,44 +1,25 @@
-import React, { useState } from "react";
- import "../TopRate/TopRate.css";
- import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'; 
- import StarIcon from "@mui/icons-material/Star";
+import React, { useState, useEffect } from "react";
+import "../TopRate/TopRate.css";
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'; 
+import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 
-
 function TopRate() {
-  const images = [
-    {
-        url: 'https://vcx-forum.org/vcx/v2019/images/apple_iphone11pro/apple_iphone11pro.png',
-        title: "Apple iPhone 11 Pro 256GB Memory",
-      rate: '5',
-      price:'$455.99'
+  const [topProducts, setTopProducts] = useState([]);
 
-    },
-    {
-      url: "https://www.pngall.com/wp-content/uploads/14/Airpod-Transparent.png",
-      title: "Apple Airpods Wireless Bluetooth Headset",
-      rate: '4',
-      price:'$455.99'
+  useEffect(() => {
+    fetch("https://dummyjson.com/product")
+      .then(response => response.json())
+      .then(data => {
+        // Sort products based on rating in descending order
+        const sortedProducts = data.products.sort((a, b) => b.rating - a.rating);
+        // Slice the array to get the top 3 products
+        const topThreeProducts = sortedProducts.slice(0, 3);
+        setTopProducts(topThreeProducts);
+      })
+      .catch(error => console.error("Error fetching products:", error));
+  }, []);
 
-    },
-    {
-        url: 'https://www.g-h.store/wp-content/uploads/2023/03/playstation-5-digital-edition-with-dualsense-front-product-shot-01-ps5-en-30jul20.png.webp',
-        title: "Playstation 5",
-      rate: '3',
-      price:'$455.99'
-
-    },
-      
-    // Add more images as needed
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-//   const handleClick = (index) => {
-//     setCurrentSlide(index);
-//     const animateHr = document.querySelector('.panimate-hr');
-//     animateHr.style.left = `${index * 30}%`; // Move animate-hr left based on clicked index
-//   };
   const generateStars = (rate) => {
     const stars = [];
     const filledStars = parseInt(rate); // Get the integer part of the rate
@@ -51,45 +32,51 @@ function TopRate() {
     }
     return stars;
   };
+  const discountPercentage =(originalPrice,discountRate)=>{
+    let newPrice=0;
+    let percentage=0;
+    if(discountRate!=0){
+     newPrice = originalPrice - (originalPrice * discountRate / 100).toFixed(2); 
+     percentage = discountRate;
+     return(
+     <>
+     <h2 className="original-price">${originalPrice}</h2>
+     <h2 className="new-price">${newPrice}</h2>
+     <div className="percentage">-{percentage}%</div>
+     </>
+    );       
+  }
+  else{
+   return(
+    <h2 className="original-price" style={{textDecoration:'none'}}>${originalPrice}</h2>
+   )
+  } 
+}
 
   return (
     <>
-    <div className="top">
-        <h1>Top Rate Products</h1>
-      <div className="hr">
-        <div className="animate-hr"></div>
-      </div>
-
-      <div className="visible-products">
-        {images
-          .slice(currentSlide * 3, currentSlide * 3 + 3)
-          .map((image, index) => (
+      <div className="top">
+        <h1>Top Rated Products</h1>
+        <div className="hr">
+          <div className="animate-hr"></div>
+        </div>
+        <div className="visible-products">     
+          {topProducts.map((product, index) => (
             <div key={index} className="category">
-                <img src={image.url} alt={`Slide ${currentSlide + 1}`} />
-                <p>{image.title}</p>
-                <h2>{image.price}</h2>
-                <div className="rating">
-                  {generateStars(image.rate)}
-                </div>
-
-                <div className="add-cart">
-                    <button><BookmarkBorderIcon/></button> 
-                    <button className="add">Add to cart</button>
-                </div>
+              <img src={product.thumbnail} alt={`Product ${index + 1}`} />
+              <p>{product.title}</p>
+              <span>{discountPercentage(product.price ,product.discountPercentage)}</span>
+              <div className="rating">
+                {generateStars(product.rating)}
+              </div>
+              <div className="add-cart">
+                <button><BookmarkBorderIcon/></button> 
+                <button className="add">Add to cart</button>
+              </div>
             </div>
           ))}
+        </div>
       </div>
-
-      {/* <div className="pcircle-buttons">
-  {[...Array(Math.ceil(images.length / 3))].map((_, index) => (
-    <button
-      key={index}
-      onClick={() => handleClick(index)}
-      className={`circle ${currentSlide === index ? "active" : ""}`}
-    ></button>
-  ))}
-</div> */}
-</div>
     </>
   );
 }

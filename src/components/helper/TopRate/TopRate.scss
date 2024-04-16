@@ -32,7 +32,30 @@ h1 {
         padding: 5%;
 
         text-align: center; 
-        border-left:3px solid #F7F8FC;     
+        border-left:1px solid #F7F8FC;  
+        .original-price{
+          display:inline;
+          text-decoration: line-through;
+          margin-right: 10px;
+        }
+        .new-price{
+          color: #FC4059;
+          display: inline;
+          
+        }
+        .percentage{
+          border-radius: 50%;
+          background-color: #FC4059;
+          color:white;
+          width:70px;
+          height: 70px;
+          position: relative;
+          top:-60%;
+          left:80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }   
         img{
             margin: auto;
             width:50%;
