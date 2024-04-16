@@ -27,9 +27,11 @@ function Header() {
       <Button className="menu" onClick={toggleDrawer}>
         <MenuIcon />
       </Button>
+      <Link to = "/" style={{textDecoration:'none'}}>
       <h1>
         <span>Pro</span>Shop
       </h1>
+      </Link>
       <div className="search-div">
         <TextField id="outlined-basic" label="search" variant="outlined" />
         <Button variant="contained"><SearchIcon/> search</Button>

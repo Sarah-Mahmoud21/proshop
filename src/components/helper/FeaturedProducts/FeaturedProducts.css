@@ -79,6 +79,7 @@
 }
 .products .pcircle-buttons {
   text-align: center;
+  padding-bottom: 1%;
 }
 .products .pcircle-buttons .circle {
   border: none;
