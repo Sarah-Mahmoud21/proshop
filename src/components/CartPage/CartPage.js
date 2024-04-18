@@ -4,30 +4,41 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
 import "../CartPage/CartPage.css";
 import { useUser } from '../helper/userContext';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
 function CartPage() {
     const { cart } = useUser(); // Accessing cart array from UserContext
-    const [quantity, setQuantity] = useState(1);
+    const { addToCart ,removeFromCart } = useUser(); // Access addToCart function from context
 
+   
     const incrementQuan = (item) => {
-      if (quantity < item.stock) {
-        setQuantity(quantity + 1);
-      }
+      let quantity = 0;
+      if (item.quantity < item.stock) {
+        quantity = item.quantity +1;
+       
+      }    
+      addToCart(item,quantity)   
+
     };
+
   
     const decrementQuan = (item) => {
-      if (quantity > 1) {
-        setQuantity(quantity - 1);
+      let quantity =0;
+      if (item.quantity > 1) {
+       quantity = item.quantity - 1;
       }
+      
+      addToCart(item,quantity)   
     };
+    
     const discountPercentage =(originalPrice,discountRate)=>{
       let newPrice=0;
-
+      let newPrice1 =0;
       if(discountRate!=0){
-       newPrice = originalPrice - (originalPrice * discountRate / 100); 
-       parseFloat(newPrice.toFixed(2));
+       newPrice1 = originalPrice - (originalPrice * discountRate / 100); 
+       newPrice = parseFloat(newPrice1.toFixed(2));
        return(
        <>
        <h2 className="original-price" style={{color:"#707070",fontSize:'20px',textDecoration:'line-through'} }>${originalPrice} </h2>
@@ -83,6 +94,7 @@ function CartPage() {
           <>
             {cart.map((item) => (
               <div key={item.id} className="cart-items">
+                <button className="close" onClick={()=>removeFromCart(item.id)}><CloseIcon/></button>
                 <img src={item.thumbnail} alt={item.title} />
                 <p>{item.title}</p>
                 <div className="quantity">
@@ -95,7 +107,7 @@ function CartPage() {
             ))}
             <div className="cart-info">
               <p>Subtotal ({len}) items </p>
-              <p style={{color:'#707070',textDecoration:'line-through',fontSize:'20px'}}>${Price(cart)}</p>
+              <p style={{color:'#707070',textDecoration:'line-through',fontSize:'15px'}}>${Price(cart)}</p>
               <p>${totalPrice(cart)}</p>
               <hr/>
               <button>Proceed to Checkout</button>
