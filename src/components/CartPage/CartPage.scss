@@ -1,0 +1,66 @@
+@import "../helper/variables";
+.empty{
+   text-align: center;
+}
+
+   
+.cart-items{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 200px;
+   width:700px;
+   background-color: #F2F2F2;
+   padding: 5%;
+   margin:5%;
+   border-radius: 15px;
+   img{
+      width:300px;
+      height:200px;
+      object-fit: contain;
+   }
+   p{
+      font-family: 'Muli';
+      font-weight: bold;
+   }
+   .quantity {
+      width: 200px;
+      height:25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+
+      button {
+        background: none;
+        border: 1px solid $color;
+        width: 30px;
+        height: 25px;
+        font-size: 15px;
+      }
+    }
+    
+}
+.cart-info{
+position: absolute;
+left: 70%;
+top:26%;
+background-color: #F2F2F2;
+border-radius: 15px;
+padding: 10px;
+p{
+   font-family: 'Muli';
+   font-weight: bold;
+   font-size: 30px;
+}
+button{
+   background-color: $color;
+   border: none;
+   border-radius: 10px;
+   font-size: 24px;
+   font-family: 'Muli';
+   padding: 5px;
+}
+
+
+}

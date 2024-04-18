@@ -7,7 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import {useUser} from '../userContext';
+import {useUser} from '../helper/userContext';
 
 
 function Header() {
@@ -15,7 +15,13 @@ function Header() {
   const isLoggedIn = !!token; 
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
   const { user } = useUser(); // Access user data from context
+  const { cart } = useUser();
   console.log(user);
+  let  len = 0;
+  cart.forEach((item) => {
+    const quan = item.quantity;
+    len += quan;
+  });
   
 
 
@@ -70,9 +76,9 @@ function Header() {
             Wishlist
           </li>
           <li>
-            <Link>
-            <Badge classes={{ badge: 'custom-badge' }} badgeContent={0} showZero>
-              <ShoppingCartIcon  style={{color:'white'}}/>
+            <Link to = '/Cart'>
+            <Badge classes={{ badge: 'custom-badge' }} badgeContent={len} showZero>
+              <ShoppingCartIcon  style={{color:'white'}}  />
               </Badge>
             </Link><br/>
             Cart

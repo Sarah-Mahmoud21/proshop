@@ -6,8 +6,10 @@ import LoginForm from './components/Login/LoginForm';
 import SignUp from './components/SignUp/SignUp';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import Home from './components/Home/Home';
-import { UserProvider } from './components/userContext'; // Make sure to import correct file name and casing
+import { UserProvider } from './components/helper/userContext'; // Make sure to import correct file name and casing
 import ProductPage from './components/ProductPage/ProductPage';
+import CartPage from './components/CartPage/CartPage';
+import TopRate from './components/helper/TopRate/TopRate';
 
 // Create BrowserRouter instance
 const router = createBrowserRouter([
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
     path: "/Home/:id",
     element: <ProductPage/>
   },
+  {
+    path: "/Cart",
+    element: <CartPage/>
+  },
 ]);
 
 // Render your application with both RouterProvider and UserProvider
@@ -42,7 +48,9 @@ ReactDOM.render(
         <Header />
         <LoginForm />
         <SignUp />
+        <Home/>
         <ProfilePage />
+        <CartPage/>
       </RouterProvider>
     </UserProvider>
   </React.StrictMode>,

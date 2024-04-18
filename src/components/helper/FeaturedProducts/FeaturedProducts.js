@@ -4,12 +4,16 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { Link } from "react-router-dom";
+import { useUser } from "../userContext"
+
 
 
 
 function FeaturedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [products, setProducts] = useState([]);
+  const { addToCart } = useUser(); // Access addToCart function from context
+
 
   useEffect(() => {
     fetch("https://dummyjson.com/product")
@@ -60,6 +64,9 @@ function FeaturedProducts() {
    )
   } 
 }
+const handleAddToCart = (product) => {
+  addToCart(product,1); // Add current product to the cart
+}
 
   return (
     <>
@@ -83,7 +90,7 @@ function FeaturedProducts() {
                 </div>
                 <div className="add-cart">
                   <button><BookmarkBorderIcon/></button> 
-                  <button className="add">Add to cart</button>
+                  <button  onClick={()=>handleAddToCart(product)}className="add">Add to cart</button>
                 </div>
               </div>
             ))}

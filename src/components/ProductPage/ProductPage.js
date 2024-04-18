@@ -5,12 +5,16 @@ import FeaturedProducts from "../helper/FeaturedProducts/FeaturedProducts";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import "../ProductPage/ProductPage.css";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { useUser } from '../helper/userContext';
+
 
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedSubImageIndex, setSelectedSubImageIndex] = useState(-1);
+  const { addToCart } = useUser(); // Access addToCart function from context
+
 
   useEffect(() => {
     fetch(`https://dummyjson.com/product/${id}`)
@@ -48,6 +52,9 @@ function ProductPage() {
   const handleSubImageClick = (index) => {
     setSelectedSubImageIndex(index);
   };
+  const handleAddToCart = (product) => {
+    addToCart(product, quantity); 
+  }
 
   return (
     <>
@@ -109,7 +116,7 @@ function ProductPage() {
               <button>
                 <BookmarkBorderIcon />
               </button>
-              <button className="add">Add to cart</button>
+              <button onClick={()=>handleAddToCart(product)} className="add">Add to cart</button>
             </div>
           </div>
           <p>{product.description}</p>

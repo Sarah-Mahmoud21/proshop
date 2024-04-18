@@ -1,0 +1,62 @@
+.empty {
+  text-align: center;
+}
+
+.cart-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+  width: 700px;
+  background-color: #F2F2F2;
+  padding: 5%;
+  margin: 5%;
+  border-radius: 15px;
+}
+.cart-items img {
+  width: 300px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cart-items p {
+  font-family: "Muli";
+  font-weight: bold;
+}
+.cart-items .quantity {
+  width: 200px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+.cart-items .quantity button {
+  background: none;
+  border: 1px solid #FCDD06;
+  width: 30px;
+  height: 25px;
+  font-size: 15px;
+}
+
+.cart-info {
+  position: absolute;
+  left: 70%;
+  top: 26%;
+  background-color: #F2F2F2;
+  border-radius: 15px;
+  padding: 10px;
+}
+.cart-info p {
+  font-family: "Muli";
+  font-weight: bold;
+  font-size: 30px;
+}
+.cart-info button {
+  background-color: #FCDD06;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  font-family: "Muli";
+  padding: 5px;
+}/*# sourceMappingURL=CartPage.css.map */

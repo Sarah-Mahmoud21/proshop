@@ -4,9 +4,13 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { Link } from "react-router-dom";
+import { useUser } from "../userContext"
+
 
 function TopRate() {
   const [topProducts, setTopProducts] = useState([]);
+  const { addToCart } = useUser(); // Access addToCart function from context
+
 
   useEffect(() => {
     fetch("https://dummyjson.com/product")
@@ -59,6 +63,9 @@ function TopRate() {
       );
     }
   };
+  const handleAddToCart = (product) => {
+    addToCart(product,1); // Add current product to the cart
+  }
 
   return (
     <>
@@ -82,7 +89,7 @@ function TopRate() {
                 <button>
                   <BookmarkBorderIcon />
                 </button>
-                <button className="add">Add to cart</button>
+                <button   onClick={()=>handleAddToCart(product)} className="add">Add to cart</button>
               </div>
             </div>
           ))}
