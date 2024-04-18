@@ -10,9 +10,11 @@ import { useUser } from "../userContext"
 
 
 function FeaturedProducts() {
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [products, setProducts] = useState([]);
   const { addToCart } = useUser(); // Access addToCart function from context
+
 
 
   useEffect(() => {
@@ -22,7 +24,9 @@ function FeaturedProducts() {
         setProducts(data.products);
       })
       .catch(error => console.error("Error fetching products:", error));
+
   }, []);
+
 
   const generateStars = (rate) => {
     const stars = [];
@@ -89,8 +93,8 @@ const handleAddToCart = (product) => {
                   {generateStars(product.rating)}
                 </div>
                 <div className="add-cart">
-                  <button><BookmarkBorderIcon/></button> 
-                  <button  onClick={()=>handleAddToCart(product)}className="add">Add to cart</button>
+                  <button><BookmarkBorderIcon style={{color:'#242424'}}/></button> 
+                  <button onClick={()=>handleAddToCart(product)}className="add">Add to cart</button>
                 </div>
               </div>
             ))}

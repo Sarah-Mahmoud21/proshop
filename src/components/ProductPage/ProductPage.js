@@ -14,6 +14,9 @@ function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const [selectedSubImageIndex, setSelectedSubImageIndex] = useState(-1);
   const { addToCart } = useUser(); // Access addToCart function from context
+  const { addToRecentlyViewed } = useUser(); // Access updateRecentlyViewed function from context
+
+
 
 
   useEffect(() => {
@@ -21,6 +24,9 @@ function ProductPage() {
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
+        addToRecentlyViewed(data);
+      console.log("addToRecentlyViewed called with:", data);
+       
       })
       .catch((error) =>
         console.error("Error fetching product details:", error)
